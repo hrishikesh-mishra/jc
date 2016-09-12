@@ -8,7 +8,7 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by hrishikesh.mishra on 18/09/16.
+ * Created by hrishikesh.mishra
  */
 public class SimpleQueue<E> implements BlockingQueue<E> {
 
