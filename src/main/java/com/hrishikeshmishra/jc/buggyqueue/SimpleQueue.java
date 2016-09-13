@@ -22,6 +22,10 @@ public class SimpleQueue<E> implements BlockingQueue<E> {
         return mList.remove(0);
     }
 
+    public boolean isEmpty() {
+        return mList.isEmpty();
+    }
+
     /** Rest Method are jus placeholder **/
     /** --------------------------------------------------- **/
     public boolean add(E e) {
@@ -84,9 +88,6 @@ public class SimpleQueue<E> implements BlockingQueue<E> {
         return 0;
     }
 
-    public boolean isEmpty() {
-        return false;
-    }
 
     public Iterator<E> iterator() {
         return null;
