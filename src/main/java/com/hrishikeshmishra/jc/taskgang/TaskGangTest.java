@@ -9,7 +9,7 @@ public class TaskGangTest {
         ONESHOT_THREAD_TO_RUN,
         ONESHOT_EXECUTOR_SERVICE,
         ONESHOT_EXECUTOR_SERVICE_FUTURE,
-//        ONESHOT_EXECUTOR_COMPLETION_FUTURE
+        ONESHOT_EXECUTOR_COMPLETION_FUTURE
     }
 
     private final static String [] wordList = {
@@ -50,8 +50,8 @@ public class TaskGangTest {
                 return new OneShotExecutorService(wordList, oneShotInputString);
             case ONESHOT_EXECUTOR_SERVICE_FUTURE:
                 return new OneShotExecutorServiceFuture(wordList, oneShotInputString);
-//            case ONESHOT_EXECUTOR_COMPLETION_FUTURE:
-//                //return new OneShotExecutorCompletionService(wordList, oneShotInputString);
+            case ONESHOT_EXECUTOR_COMPLETION_FUTURE:
+                return new OneShotExecutorCompletionService(wordList, oneShotInputString);
         }
         return null;
     }
@@ -60,12 +60,11 @@ public class TaskGangTest {
     public static void main(String[] args) {
         printDebugging("Starting TaskGangTest");
 
-//        for (TestsToRun test: TestsToRun.values()){
-            TestsToRun test = TestsToRun.ONESHOT_EXECUTOR_SERVICE_FUTURE;
+        for (TestsToRun test: TestsToRun.values()){
             printDebugging("Starting " + test);
             makeTaskGang(wordList, test).run();
             printDebugging("Ending " + test);
-        //}
+        }
 
         printDebugging("Ending TaskGangTest");
     }
