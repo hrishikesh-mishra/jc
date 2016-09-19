@@ -8,7 +8,7 @@ public class TaskGangTest {
     public enum  TestsToRun{
         ONESHOT_THREAD_TO_RUN,
         ONESHOT_EXECUTOR_SERVICE,
-//        ONESHOT_EXECUTOR_SERVICE_FUTURE,
+        ONESHOT_EXECUTOR_SERVICE_FUTURE,
 //        ONESHOT_EXECUTOR_COMPLETION_FUTURE
     }
 
@@ -48,8 +48,8 @@ public class TaskGangTest {
                 return new OneShotThreadPerTask(wordList, oneShotInputString);
             case ONESHOT_EXECUTOR_SERVICE:
                 return new OneShotExecutorService(wordList, oneShotInputString);
-//            case ONESHOT_EXECUTOR_SERVICE_FUTURE:
-//               // return new OneShotExecutorServiceFuture(wordList, oneShotInputString);
+            case ONESHOT_EXECUTOR_SERVICE_FUTURE:
+                return new OneShotExecutorServiceFuture(wordList, oneShotInputString);
 //            case ONESHOT_EXECUTOR_COMPLETION_FUTURE:
 //                //return new OneShotExecutorCompletionService(wordList, oneShotInputString);
         }
@@ -61,7 +61,7 @@ public class TaskGangTest {
         printDebugging("Starting TaskGangTest");
 
 //        for (TestsToRun test: TestsToRun.values()){
-            TestsToRun test = TestsToRun.ONESHOT_EXECUTOR_SERVICE;
+            TestsToRun test = TestsToRun.ONESHOT_EXECUTOR_SERVICE_FUTURE;
             printDebugging("Starting " + test);
             makeTaskGang(wordList, test).run();
             printDebugging("Ending " + test);
