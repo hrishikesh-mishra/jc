@@ -9,7 +9,7 @@ public class LogTask implements Runnable {
     public void run() {
 
         try{
-            while (Thread.currentThread().isInterrupted()){
+            while (!Thread.currentThread().isInterrupted()){
                 TimeUnit.SECONDS.sleep(10);
                 Logger.writeLogs();
             }

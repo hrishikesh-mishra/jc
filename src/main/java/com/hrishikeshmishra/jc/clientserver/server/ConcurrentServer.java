@@ -1,5 +1,6 @@
 package com.hrishikeshmishra.jc.clientserver.server;
 
+import com.hrishikeshmishra.jc.advclientserver.server.command.ConcurrentCommand;
 import com.hrishikeshmishra.jc.clientserver.server.dao.WDIDAO;
 
 import java.io.IOException;
@@ -70,4 +71,10 @@ public class ConcurrentServer {
     public static ParallelCache getCache(){
         return cache;
     }
+
+    public static void finishTask(String username, ConcurrentCommand command) {
+
+    }
+
+
 }
