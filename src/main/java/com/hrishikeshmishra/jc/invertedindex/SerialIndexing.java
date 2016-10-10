@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ *
  * Created by hrishikesh.mishra on 10/10/16.
  */
 public class SerialIndexing {
@@ -32,6 +33,7 @@ public class SerialIndexing {
         System.out.println("Execution time: " + (end.getTime() - start.getTime()));
         System.out.println("InvertedIndex : " + invertedIndex.size());
         invertedIndex.keySet().forEach(System.out::println);
+
     }
 
     private static void updateInvertedIndex(Map<String, Integer> voc, Map<String, List<String>> invertedIndex, String fileName) {
