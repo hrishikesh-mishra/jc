@@ -1,7 +1,9 @@
 package com.hrishikeshmishra.jc.invertedindex;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedDeque;
 import java.util.concurrent.ExecutorCompletionService;
@@ -10,37 +12,44 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
- * <p>
- *  ExecutorService = incoming queue + worker threads
- *  CompletionService = incoming queue + worker threads + output queue
- * </p>
- *
  * Created by hrishikesh.mishra on 10/10/16.
  */
-public class ConcurrentIndexing {
+public class MultipleConcurrentIndexing {
 
     public static void main(String[] args) {
         int numCores = Runtime.getRuntime().availableProcessors();
         ThreadPoolExecutor executor= (ThreadPoolExecutor) Executors.newFixedThreadPool(Math.max(numCores-1, 1));
-        ExecutorCompletionService<Document> completionService = new ExecutorCompletionService<>(executor);
+        ExecutorCompletionService<List<Document>> completionService = new ExecutorCompletionService<>(executor);
         ConcurrentHashMap<String, ConcurrentLinkedDeque<String>> invertedIndex = new ConcurrentHashMap<>();
 
         Date start, end;
         File source = new File("data/indexing");
         File[] files = source.listFiles();
-
-
+        int NUMBER_OF_TASKS = 10;
         start = new Date();
-        for (File file: files){
-            IndexingTask task = new IndexingTask(file);
+        List<File> taskFiles = new ArrayList<>();
+
+        for(File file: files){
+            taskFiles.add(file);
+            if(taskFiles.size() == NUMBER_OF_TASKS){
+                MultipleIndexingTask task = new MultipleIndexingTask(taskFiles);
+                completionService.submit(task);
+                taskFiles = new ArrayList<>();
+            }
+        }
+
+
+        if(taskFiles.size() > 0 ){
+            MultipleIndexingTask task = new MultipleIndexingTask(taskFiles);
             completionService.submit(task);
         }
 
-        InvertedIndexTask invertedIndexTask = new InvertedIndexTask(completionService, invertedIndex);
-        Thread thread1 = new Thread(invertedIndexTask);
+        MultipleInvertedIndexingTask invertedIndexingTask = new MultipleInvertedIndexingTask(completionService, invertedIndex);
+        Thread thread1 = new Thread(invertedIndexingTask);
         thread1.start();
-        InvertedIndexTask invertedIndexTask2 =  new InvertedIndexTask(completionService, invertedIndex);
-        Thread thread2 = new Thread(invertedIndexTask2);
+
+        MultipleInvertedIndexingTask invertedIndexingTask2 = new MultipleInvertedIndexingTask(completionService, invertedIndex);
+        Thread thread2 = new Thread(invertedIndexingTask2);
         thread2.start();
 
 
@@ -59,6 +68,7 @@ public class ConcurrentIndexing {
         end = new Date();
         System.out.println("Execution Time: " + (end.getTime() - start.getTime()));
         System.out.println("inverted index: " + invertedIndex.size());
+
 
     }
 }
