@@ -1,0 +1,12 @@
+Donald Ervin Knuth (/kəˈnuːθ/[3] kə-NOOTH; born January 10, 1938) is an American computer scientist, mathematician, and professor emeritus at Stanford University.[7]
+
+He is the author of the multi-volume work The Art of Computer Programming.[8] Knuth has been called the "father of the analysis of algorithms".[9] He contributed to the development of the rigorous analysis of the computational complexity of algorithms and systematized formal mathematical techniques for it. In the process he also popularized the asymptotic notation. In addition to fundamental contributions in several branches of theoretical computer science, Knuth is the creator of the TeX computer typesetting system, the related METAFONT font definition language and rendering system, and the Computer Modern family of typefaces.
+
+As a writer and scholar,[10] Knuth created the WEB and CWEB computer programming systems designed to encourage and facilitate literate programming, and designed the MIX/MMIX instruction set architectures. As a member of the academic and scientific community, Knuth is strongly opposed to the policy of granting software patents.[11] He has expressed his disagreement directly to both the United States Patent and Trademark Office and European Patent Organization.[1
+
+Early life
+
+Knuth was born in Milwaukee, Wisconsin, to Ervin Henry Knuth and Louise Marie Bohning, of German ancestry.[13] His father owned a small printing business[citation needed] and taught bookkeeping at Milwaukee Lutheran High School, where Donald enrolled, earning achievement awards. He applied his intelligence in unconventional ways, winning a contest when he was in eighth grade by finding over 4,500 words that could be formed from the letters in "Ziegler's Giant Bar"; the judges had only about 2,500 words on their master list. This won him a television set for his school and enough candy bars for his entire school.[14]
+Education
+
+Knuth had a difficult time choosing physics over music as his major at Case Institute of Technology (now part of Case Western Reserve University). He also joined Beta Nu Chapter of the Theta Chi fraternity. While studying physics at the Case Institute of Technology, Knuth was introduced to the IBM 650, one of the early mainframes. After reading the computer's manual, Knuth decided to rewrite the assembly and compiler code for the machine used in his school, because he believed he could do it better.[15]
