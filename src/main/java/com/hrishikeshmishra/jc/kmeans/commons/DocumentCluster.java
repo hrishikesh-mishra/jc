@@ -1,6 +1,4 @@
-package com.hrishikeshmishra.jc.kmeans.serial;
-
-import com.hrishikeshmishra.jc.kmeans.commons.Word;
+package com.hrishikeshmishra.jc.kmeans.commons;
 
 import java.util.ArrayList;
 import java.util.Arrays;

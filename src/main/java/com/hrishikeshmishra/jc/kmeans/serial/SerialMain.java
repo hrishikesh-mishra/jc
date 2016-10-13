@@ -1,5 +1,7 @@
 package com.hrishikeshmishra.jc.kmeans.serial;
 
+import com.hrishikeshmishra.jc.kmeans.commons.Document;
+import com.hrishikeshmishra.jc.kmeans.commons.DocumentCluster;
 import com.hrishikeshmishra.jc.kmeans.commons.VocabularyLoader;
 
 import java.io.IOException;
@@ -21,14 +23,14 @@ public class SerialMain {
         Map<String , Integer> vocIndex = VocabularyLoader.load(pathVoc);
         System.out.println("Voc size: " + vocIndex.size());
         Path pathDoc = Paths.get("data", "movies.data");
-        Document [] documents = DocumentLoader.load(pathDoc, vocIndex);
+        Document[] documents = DocumentLoader.load(pathDoc, vocIndex);
 
         int K = 3;
         int SEED = 10;
 
         Date start, end;
         start = new Date();
-        DocumentCluster [] clusters = SerialKMeans.calculate(documents, K, vocIndex.size(), SEED);
+        DocumentCluster[] clusters = SerialKMeans.calculate(documents, K, vocIndex.size(), SEED);
         end = new Date();
 
 

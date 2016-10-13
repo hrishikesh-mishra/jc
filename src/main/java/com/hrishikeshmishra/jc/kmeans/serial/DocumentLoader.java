@@ -1,5 +1,6 @@
 package com.hrishikeshmishra.jc.kmeans.serial;
 
+import com.hrishikeshmishra.jc.kmeans.commons.Document;
 import com.hrishikeshmishra.jc.kmeans.commons.Word;
 
 import java.io.BufferedReader;
@@ -16,7 +17,7 @@ import java.util.Map;
  */
 public class DocumentLoader {
 
-    public static Document [] load(Path path, Map<String, Integer> vocIndex) throws IOException {
+    public static Document[] load(Path path, Map<String, Integer> vocIndex) throws IOException {
 
         List<Document> documents = new ArrayList<>();
         try(BufferedReader reader = Files.newBufferedReader(path)){

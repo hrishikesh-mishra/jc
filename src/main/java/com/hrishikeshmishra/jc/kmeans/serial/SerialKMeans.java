@@ -2,6 +2,8 @@ package com.hrishikeshmishra.jc.kmeans.serial;
 
 
 import com.hrishikeshmishra.jc.kmeans.commons.DistanceMeasurer;
+import com.hrishikeshmishra.jc.kmeans.commons.Document;
+import com.hrishikeshmishra.jc.kmeans.commons.DocumentCluster;
 
 import java.util.Random;
 

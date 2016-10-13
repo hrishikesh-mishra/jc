@@ -41,11 +41,6 @@ public class Word implements Comparable<Word> {
 
     @Override
     public int compareTo(Word o) {
-        if (this.getIndex() < o.getIndex()) {
-            return -1;
-        } else if (this.getIndex() > o.getIndex()) {
-            return 1;
-        }
-        return 0;
+        return Integer.compare(this.getIndex(), o.getIndex());
     }
 }
